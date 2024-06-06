@@ -333,3 +333,26 @@ function printBookAuthorsCount(title, ...authors) {
 
 // Did a little extra here ^
 // ------------------------------------------------
+// Practice with short circuiting
+
+// const restaurant = {
+//   starterMenu: ['Mozzarella sticks', 'Bread', 'Chips and dip', 'Wings'],
+//   mainMenu: ['Burger', 'Steak', 'Chicken', 'Salad'],
+//   location: {
+//     street: '123 Main Street',
+//     city: 'Vancouver',
+//     state: 'WA',
+//   },
+//   numGuests: 23,
+//   orderPizza: function (ingredient) {
+//     console.log(`Here is your pizza with ${ingredient}.`);
+//   },
+// };
+
+// // const numberOfGuests = restaurant.numGuests ? restaurant.numGuests : 'Unknown';
+
+// const numberOfGuests = restaurant.numGuests || 'Unknown';
+
+// restaurant.orderPizza && restaurant.orderPizza('chicken');
+
+// ------------------------------------------------
