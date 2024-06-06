@@ -356,3 +356,23 @@ function printBookAuthorsCount(title, ...authors) {
 // restaurant.orderPizza && restaurant.orderPizza('chicken');
 
 // ------------------------------------------------
+// Short Circuiting (&& and ||)
+
+// 5.1) Some of the book objects have the programmingLanguage property, which specifies what programming language is used in the book.
+
+// Write a function called hasExamplesInJava that takes a book object from the books array as an argument. This function should return true if the book uses Java, or a string 'no data available' if it uses other language or no programming language at all.
+
+// Use short-circuiting
+
+function hasExamplesInJava(book) {
+  return typeof book.programmingLanguage === 'object'
+    ? book.programmingLanguage.includes('Java') || 'no data available'
+    : book.programmingLanguage === 'Java' || 'no data available';
+}
+
+console.log(hasExamplesInJava(books[1]));
+console.log(books[0].programmingLanguage);
+
+console.log(books[0].programmingLanguage === 'Java');
+
+// BUG still need to flesh out this function..
