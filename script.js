@@ -333,29 +333,6 @@ function printBookAuthorsCount(title, ...authors) {
 
 // Did a little extra here ^
 // ------------------------------------------------
-// Practice with short circuiting
-
-// const restaurant = {
-//   starterMenu: ['Mozzarella sticks', 'Bread', 'Chips and dip', 'Wings'],
-//   mainMenu: ['Burger', 'Steak', 'Chicken', 'Salad'],
-//   location: {
-//     street: '123 Main Street',
-//     city: 'Vancouver',
-//     state: 'WA',
-//   },
-//   numGuests: 23,
-//   orderPizza: function (ingredient) {
-//     console.log(`Here is your pizza with ${ingredient}.`);
-//   },
-// };
-
-// // const numberOfGuests = restaurant.numGuests ? restaurant.numGuests : 'Unknown';
-
-// const numberOfGuests = restaurant.numGuests || 'Unknown';
-
-// restaurant.orderPizza && restaurant.orderPizza('chicken');
-
-// ------------------------------------------------
 // Short Circuiting (&& and ||)
 
 // 5.1) Some of the book objects have the programmingLanguage property, which specifies what programming language is used in the book.
@@ -374,12 +351,114 @@ function hasExamplesInJava(book) {
 
 // 5.2) Some of the book objects have the onlineContent property, which is either true or false. Loop over the books array, and for the books that provide online content, log to the console a string in this format: "${title}" provides online content. Use short-circuiting.
 
-for (let i = 0; i < books.length; i++) {
-  books[i].onlineContent &&
-    console.log(`"${books[i].title}" provides online content.`);
-}
+// for (let i = 0; i < books.length; i++) {
+//   books[i].onlineContent &&
+//     console.log(`"${books[i].title}" provides online content.`);
+// }
 
 // ------------------------------------------------
 // The Nullish Coalescing Operator (??)
 
-// 6.1)
+// ------------------------------------------------
+
+const restaurant = {
+  starterMenu: ['Mozzarella sticks', 'Bread', 'Chips and dip', 'Wings'],
+  mainMenu: ['Burger', 'Steak', 'Chicken', 'Salad'],
+  location: {
+    street: '123 Main Street',
+    city: 'Vancouver',
+    state: 'WA',
+  },
+  numGuests: 0,
+  orderPizza: function (ingredient) {
+    console.log(`Here is your pizza with ${ingredient}.`);
+  },
+};
+
+// const numberOfGuests = restaurant.numGuests || 'no data available';
+
+const numberOfGuests = restaurant.numGuests ?? 'no data available';
+
+// ------------------------------------------------
+
+// 6.1) There are objects in the books array that don't have the onlineContent property at all. Loop over the books array, and log a string to the console in this format: "${title}" provides no data about its online content.
+
+// for (let i = 0; i < books.length; i++) {
+//   books[i].onlineContent ??
+//     console.log(
+//       `"${books[i].title}" provides no data about it's online content.`
+//     );
+// }
+
+// ------------------------------------------------
+// Logical Assignments Operators
+
+// const rest1 = {
+//   name: 'Capri',
+//   numGuests: 20,
+// };
+
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+//   //   numGuests: 45,
+//   numGuests: 0,
+// };
+
+// // rest1.numGuests = rest1.numGuests || 10;
+// // rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ??= 23;
+
+// console.log(rest1.numGuests);
+// console.log(rest2.numGuests);
+
+// 7.1) Some of the book objects from the books array are missing the edition property. Loop over the books array, and assign this property with a number 1 (if it doesn't already exist). Use logical assignment operators.
+
+for (let i = 0; i < books.length; i++) {
+  books[i].edition ||= 1;
+}
+
+// 7.2) Some of the book objects from the books array have the highlighted property, which by default is set to true. Iterate over the books array, and if the thirdParty.goodreads.rating property is less than 4.2, reassign it with false.
+
+// Use the &&= operator (tip: you may also need the ! operator)
+
+for (let i = 0; i < books.length; i++) {
+  books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+}
+
+// ------------------------------------------------
+// Looping Arrays: The for-of Loop
+
+// 8.1) Use the for-of loop to loop over the books array and sum the pages of all books. Use the pageSum variable below, and the pages property of the book objects.
+
+let pageSum = 0;
+
+for (const book of books) {
+  pageSum += book.pages;
+}
+
+// 8.2) Below is the allAuthors variable which stores an empty array. Use the for-of loop to fill allAuthors with the authors of each book from the books array.
+
+// Remember that each book object has the author property, which can be a string (if there is only a single author) or an array (if there are multiple authors). You may need to use the typeof operator. You can also use multiple loops if needed. The allAuthors array should have just one level (no nested arrays).
+
+const allAuthors = [];
+
+for (const book of books) {
+  if (typeof book.author === 'object') {
+    for (const author of book.author) {
+      allAuthors.push(author);
+    }
+  } else {
+    allAuthors.push(book.author);
+  }
+}
+
+// 8.3) Use the for-of loop together with Array's entries() method to log each author from allAuthors to the console together with its index. Make the index start from 1, instead of 0.
+
+// for (const [index, author] of allAuthors.entries()) {
+//   console.log(`${index + 1}. ${author}`);
+// }
+
+// ------------------------------------------------
