@@ -370,9 +370,6 @@ function hasExamplesInJava(book) {
     : book.programmingLanguage === 'Java' || 'no data available';
 }
 
-console.log(hasExamplesInJava(books[1]));
-console.log(books[0].programmingLanguage);
+// console.log(hasExamplesInJava(books[1]));
 
-console.log(books[0].programmingLanguage === 'Java');
-
-// BUG still need to flesh out this function..
+// 5.2) Some of the book objects have the onlineContent property, which is either true or false. Loop over the books array, and for the books that provide online content, log to the console a string in this format: "${title}" provides online content. Use short-circuiting.
