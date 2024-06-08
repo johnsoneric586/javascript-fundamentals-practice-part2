@@ -313,7 +313,7 @@ function spellWord(string) {
 
 // 4.1) Destructure the keywords property (array) of the first book from the books array into variables called mainKeyword and rest. The first keyword should be assigned to mainKeyword, and the rest of the keywords should be assigned to the rest variable (it should be an array).
 
-const [mainKeyword, ...rest] = books[0].keywords;
+// const [mainKeyword, ...rest] = books[0].keywords;
 
 // 4.2) Destructure the second book from the books array into a variable called bookPublisher. The bookPublisher variable should be assigned with the value of the publisher property of the book object. Assign the rest of the properties to the restOfTheBook variable.
 
@@ -482,3 +482,9 @@ const newBook2 = {
 // Optional Chaining (?.)
 
 // 10.1) Write a function called getFirstKeyword that takes the book object as an argument. This function should return the first keyword from the book's keywords property (array) or undefined (if the keywords property doesn't exist). It shouldn't throw an error. Use optional chaining for that.
+
+function getFirstKeyword(book) {
+  console.log(book.keywords?.[0]);
+}
+
+// ------------------------------------------------
