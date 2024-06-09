@@ -511,3 +511,20 @@ for (const [index, value] of Object.values(
 ).entries()) {
   entries[index].push(value);
 }
+
+// 11.3) Use the Object.entries() method on the thirdParty.goodreads property of the first book from the books array. Assign the returned value to the variable called entries2.
+
+const entries2 = Object.entries(books[0].thirdParty.goodreads);
+
+// ------------------------------------------------
+// Sets
+
+// 12.1) Below is the allKeywords variable, which stores an empty array. Loop over the books array, and fill the allKeywords array with the keywords coming from the keywords property of each book object. The allKeywords array should have just one level (no nested arrays).
+
+// Use whatever loop and methods you want. You can also use the spread syntax. In the end, the allKeywords array should look more or less like this: ['computer science', 'programming', 'algorithms', 'data structures', ...].
+
+const allKeywords = [];
+
+for (const book of books) {
+  allKeywords.push(...book.keywords);
+}
