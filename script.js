@@ -528,3 +528,28 @@ const allKeywords = [];
 for (const book of books) {
   allKeywords.push(...book.keywords);
 }
+
+// 12.2) The allKeyword array contains duplicates. Remove them by creating a Set out of that array. Assign the newly created set to the uniqueKeywords variable.
+
+const uniqueKeywords = new Set(allKeywords);
+
+// 12.3) Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.
+
+uniqueKeywords.add('coding');
+uniqueKeywords.add('science');
+
+// 12.4) Delete 'business' from the uniqueKeywords set.
+
+uniqueKeywords.delete('business');
+
+// 12.5) Create an array out of the uniqueKeywords set, and assign it to the uniqueKeywordsArr variable.
+
+const uniqueKeywordsArr = [...uniqueKeywords];
+
+// 12.6) Delete all items from the uniqueKeywords set.
+
+uniqueKeywords.clear();
+
+// ------------------------------------------------
+
+// Maps: Fundamentals
